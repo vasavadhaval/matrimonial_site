@@ -23,6 +23,23 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
 
     <style>
+
+
+.nav-item .nav-link.scroll.login, .nav-item .nav-link.scroll.create-profile {
+    background-color: white;
+    color: red;
+    border-radius: 25px;
+    padding: 4px 12px !important;
+    transition: all 0.3s ease-in-out;
+}
+.nav-item:has(.nav-link.scroll.login), .nav-item:has(.nav-link.scroll.create-profile) {
+    align-items: center;
+    padding: 11px;
+    display: flex;
+}
+
+
+
         .custom_bg{
             background: linear-gradient(-47deg, #f55171 0%, #f55171 100%);
             
@@ -165,6 +182,10 @@
     display: inline-block;
     transition: ease-in all 0.5s;
 }
+.navbar .navbar-nav .nav-link {
+    padding-right: 0.25rem !important;
+
+}
     </style>
 </head>
 
@@ -237,10 +258,20 @@
                             <li class="nav-item">
                                 <a class="nav-link scroll" href="#stories">Stories</a>
                             </li>
-
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#stories">Login</a>
+                                <div>
+
+                                    <a class="nav-link scroll login" href="#login">Login</a>
+                                </div>
                             </li>
+                            <li class="nav-item">
+                                <div>
+
+                                    <a class="nav-link scroll create-profile" href="#create-profile">Create Profile</a>
+                                </div>
+                            </li>
+                        </ul>
+                        
 
       
                         </ul>
