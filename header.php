@@ -1,12 +1,6 @@
 <?php
-include 'db.php';
 session_start();
-if (isset($_SESSION['is_login']) && $_SESSION['is_login'] === true) {
-    $user_id = $_SESSION['user_data']['id']; // Get user ID from session
-
-}else{
-    // header("Location: sing_in.php");
-}
+include 'db.php';
 ?>
 <!doctype html>
 <html class="no-js" lang="en">

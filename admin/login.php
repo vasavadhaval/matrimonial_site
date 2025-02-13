@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
   $email = $_POST['email'];
   $password = $_POST['password'];
 
-  $sql = "SELECT * FROM users WHERE email = '$email'";
+  $sql = "SELECT * FROM users WHERE email = '$email' AND role_id = 1";
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) > 0) {

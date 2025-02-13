@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $sql = "SELECT * FROM users WHERE email = '$email' AND role_id = 2";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -72,8 +72,13 @@ if (isset($_POST['submit'])) {
                             </div>
 
                             <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <label class="form-label" for="password">Password</label>
+                                    <a href="forgot_password.php">
+                                        Forgot Password?
+                                    </a>
+                                </div>
                                 <div class="form-group">
-                                    <label for="password">Password :</label>
                                     <input type="password" id="password" class="form-control" name="password" required
                                         placeholder="Enter your password">
                                 </div>
@@ -85,6 +90,16 @@ if (isset($_POST['submit'])) {
                                         <!-- <i class="fas fa-paper-plane"></i> -->
                                     </span>Log In</button>
                             </div>
+                            <div class="col-12 mt-2">
+                                <p class="text-center">
+                                    <span>New on our platform?</span>
+                                    <a href="sing_up.php">
+                                        <span>Create profile</span>
+                                    </a>
+                                </p>
+                            </div>
+
+
                     </form>
                     <p class="form-message"></p>
                 </div>
@@ -93,4 +108,3 @@ if (isset($_POST['submit'])) {
     </div>
 </section>
 <?php include 'footer.php'; ?>
-

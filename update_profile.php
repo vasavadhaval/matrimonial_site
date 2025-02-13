@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<?php include 'check_login.php'; ?>
 
 <?php
     $sql = "SELECT * FROM users WHERE id = $user_id";

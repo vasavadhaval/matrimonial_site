@@ -44,16 +44,27 @@ if (isset($_POST['submit'])) {
     
     $status = 'pending';
 
-    $sql = "INSERT INTO users (full_name, email, phone_no, password, status) 
-            VALUES ('$full_name', '$email', '$phone_no', '$password', '$status')";
+    // Check if the user with the given email already exists
+    $check_email_query = "SELECT * FROM users WHERE email='$email' AND role_id = 2";
+    $result = mysqli_query($conn, $check_email_query);
 
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
         echo "<script>
-            alert('Your profile is created successfully.');
-            window.location.href = 'sing_in.php';
+            alert('Email already exists. Please use a different email.');
+            window.location.href = 'sing_up.php';
         </script>";
     } else {
-        echo "<script>alert('Error: " . $sql . " <br> " . mysqli_error($conn) . "');</script>";
+        $sql = "INSERT INTO users (full_name, email, phone_no, password, status) 
+                VALUES ('$full_name', '$email', '$phone_no', '$password', '$status')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>
+                alert('Your profile is created successfully.');
+                window.location.href = 'sing_in.php';
+            </script>";
+        } else {
+            echo "<script>alert('Error: " . $sql . " <br> " . mysqli_error($conn) . "');</script>";
+        }
     }
 
     // if (mysqli_query($conn, $sql)) {
@@ -148,6 +159,14 @@ if (isset($_POST['submit'])) {
                                 <button type="submit" name="submit" class="btn mt-3 w-100"><span class="text-white ">
                                         <!-- <i class="fas fa-paper-plane"></i> -->
                                     </span>Create Profile</button>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <p class="text-center">
+                                    <span>Already have an account?</span>
+                                    <a href="sing_in.php">
+                                        <span>Sign in instead</span>
+                                    </a>
+                                </p>
                             </div>
                     </form>
                     <p class="form-message"></p>

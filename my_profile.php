@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<?php include 'check_login.php'; ?>
 
 <?php
     $sql = "SELECT * FROM users WHERE id = $user_id";
@@ -33,7 +34,7 @@
             margin-bottom: 8px;
         }
     </style>
-<section id="contact" class="contact-area ptb_100 mt-1">
+<section id="contact" class="contact-area ptb_100 mt-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-6">
