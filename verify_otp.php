@@ -24,6 +24,7 @@ if (isset($_POST['verify'])) {
                 <div class="section-heading text-center">
                     <h2 class="text-capitalize">Verify OTP</h2>
                     <p class="mt-4">Enter the OTP sent to your email address.</p>
+                    <p class="mt-4">your OTP is (123456)</p>
                 </div>
             </div>
         </div>

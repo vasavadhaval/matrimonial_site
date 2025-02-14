@@ -8,6 +8,8 @@ if (isset($_POST['submit'])) {
     
     if (mysqli_num_rows($result) > 0) {
         $otp = rand(100000, 999999);
+        $otp = 123456;
+
         
         // Store OTP in database
         $query = "INSERT INTO otp_verifications (email, otp) VALUES ('$email', '$otp')
