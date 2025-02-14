@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 
 <!-- ***** Welcome Area Start ***** -->
-<section id="home" class="section welcome-areaa bg-inherit h-100vh overflow-hidden">
+<section id="home" class="section welcome-areaa bg-inherit h-100vh overflow-hidden mt-5">
     <!-- BEGIN: Content-->
     <div class="intro-slider-container">
         <div class="owl-carousel owl-simple owl-light owl-nav-inside" data-toggle="owl"

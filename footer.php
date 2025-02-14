@@ -101,9 +101,9 @@
                             <!-- Copyright Area -->
                             <div class="copyright-area d-flex flex-wrap justify-content-center justify-content-sm-between text-center py-4">
                                 <!-- Copyright Left -->
-                                <div class="copyright-left">&copy; Copyrights 2020 Prolend All rights reserved.</div>
+                                <!-- <div class="copyright-left">&copy; Copyrights 2020  All rights reserved.</div> -->
                                 <!-- Copyright Right -->
-                                <div class="copyright-right">Made with <i class="fas fa-heart"></i> By <a href="#">Theme Land</a></div>
+                                <!-- <div class="copyright-right">Made with <i class="fas fa-heart"></i> By <a href="#">Theme Land</a></div> -->
                             </div>
                         </div>
                     </div>

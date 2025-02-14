@@ -197,7 +197,7 @@ include 'db.php';
 
 <body>
     <!--====== Preloader Area Start ======-->
-    <div class="preloader-main">
+    <!-- <div class="preloader-main">
         <div class="preloader-wapper">
             <svg class="preloader" xmlns="http://www.w3.org/2000/svg" version="1.1" width="600" height="200">
                 <defs>
@@ -216,7 +216,7 @@ include 'db.php';
                 <div class="loader-section section-right"></div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!--====== Scroll To Top Area Start ======-->
     <div id="scrollUp" title="Scroll To Top">
@@ -244,22 +244,19 @@ include 'db.php';
                     <nav>
                         <ul class="navbar-nav" id="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#home">Home</a>
+                                <a class="nav-link" href="index.php">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#about">About</a>
+                                <a class="nav-link" href="about_us.php">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#contact">Contact</a>
+                                <a class="nav-link" href="contact_us.php">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#service">Service</a>
+                                <a class="nav-link" href="service.php">Service</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link scroll" href="#gallery">Gallery</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link scroll" href="#experience">Experience</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link scroll" href="#stories">Stories</a>
