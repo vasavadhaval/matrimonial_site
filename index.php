@@ -20,10 +20,10 @@
                                     You said marriage was for people who wanted to spend a lifetime together, not a few
                                     nights.</p>
                                 <!-- Store Buttons -->
-                                <div class="button-group store-buttons d-flex">
+                                <!-- <div class="button-group store-buttons d-flex">
                                     <a class="btn prolend-primary" href="#">Get the App</a>
                                     <a class="btn prolend-primary style-two" href="#">Learn More</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-12 col-md-5">
@@ -50,10 +50,10 @@
                                     You said marriage was for people who wanted to spend a lifetime together, not a few
                                     nights.</p>
                                 <!-- Store Buttons -->
-                                <div class="button-group store-buttons d-flex">
+                                <!-- <div class="button-group store-buttons d-flex">
                                     <a class="btn prolend-primary" href="#">Get the App</a>
                                     <a class="btn prolend-primary style-two" href="#">Learn More</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-12 col-md-5">
@@ -80,10 +80,10 @@
                                     You said marriage was for people who wanted to spend a lifetime together, not a few
                                     nights.</p>
                                 <!-- Store Buttons -->
-                                <div class="button-group store-buttons d-flex">
+                                <!-- <div class="button-group store-buttons d-flex">
                                     <a class="btn prolend-primary" href="#">Get the App</a>
                                     <a class="btn prolend-primary style-two" href="#">Learn More</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-12 col-md-5">

@@ -256,10 +256,10 @@ include 'db.php';
                                 <a class="nav-link" href="service.php">Service</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#gallery">Gallery</a>
+                                <a class="nav-link" href="gallary.php">Gallery</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#stories">Stories</a>
+                                <a class="nav-link" href="stories.php">Stories</a>
                             </li>
                             <?php if (isset($_SESSION['is_login']) && $_SESSION['is_login'] == true){ ?>
                                 <li class="nav-item">

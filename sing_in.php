@@ -74,9 +74,9 @@ if (isset($_POST['submit'])) {
                             <div class="col-12">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="password">Password</label>
-                                    <a href="forgot_password.php">
+                                    <!-- <a href="forgot_password.php">
                                         Forgot Password?
-                                    </a>
+                                    </a> -->
                                 </div>
                                 <div class="form-group">
                                     <input type="password" id="password" class="form-control" name="password" required
