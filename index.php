@@ -225,23 +225,29 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <a class="read_more" href="#">Read more</a>
+                <a class="read_more" href="steps_details.php">Read more</a>
             </div>
         </div>
     </div>
 
 </section>
-
-<section id="features3" class="section product-features-area overflow-hidden ptb_100 weare">
+<!-- ***** Promo Area Start ***** -->
+<section id="products" class="section product-features-area overflow-hidden ptb_100 weare">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage">
-                    <h2>Experience</h2>
-
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-7">
+                <!-- Section Heading -->
+                <div class="section-heading text-center">
+                    <h2 class="text-capitalize">Experience</h2>
+                    <!-- <p class="d-none d-sm-block mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum
+                        obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.</p>
+                    <p class="d-block d-sm-none mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum
+                        obcaecati.</p> -->
                 </div>
             </div>
         </div>
+
+
         <div class="row">
             <div class="col-md-10 offset-md-1">
                 <div class="row">
@@ -264,12 +270,14 @@
                         believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
                         anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the
                         Internet tend to repeat pre</p>
-                    <a class="read_more" href="photozone-1.0.0/cast.html">Read more</a>
+                    <a class="read_more" href="experience.php">Read more</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!-- ***** Promo Area End ***** -->
+
 <section class="review-area bg-gray ptb_100 custom_bg">
     <div class="container">
         <div class="row justify-content-center">

@@ -21,7 +21,7 @@ include 'db.php';
     <!-- ***** All CSS Files ***** -->
 
     <!-- Style css -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?23423">
 
     <!-- Responsive css -->
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -191,7 +191,35 @@ include 'db.php';
                 display: inline-block;
                 transition: ease-in all 0.5s;
             }
-
+            .read_more:hover {
+    background: #000;
+    color: #fff;
+    border-radius: 26px;
+    transition: ease-in all 0.5s;
+}
+.weare .weare_box .read_more:hover {
+    background: #f55171;
+}
+.btn.prolend-primary::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #F74B54;
+    -webkit-transform: scaleX(0);
+    /* transform: scaleX(0); */
+    /* -webkit-transform-origin: 0 50%; */
+    /* transform-origin: 0 50%; */
+    -webkit-transition-property: transform;
+    /* transition-property: transform; */
+    /* -webkit-transition-duration: 0.5s; */
+    /* transition-duration: 0.5s; */
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
     </style>
 </head>
 

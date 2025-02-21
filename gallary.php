@@ -1,148 +1,145 @@
 <?php include 'header.php'; ?>
 
 <style>
-    .ptb_1001 {
+.ptb_1001 {
     padding: 100px 0 !important;
 }
-/* CSS   */
+
 .album .responsive-container-block {
-        min-height: 75px;
-        height: fit-content;
-        width: 100%;
-        padding-top: 10px;
-        padding-right: 10px;
-        padding-bottom: 10px;
-        padding-left: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 0px;
-        margin-right: auto;
-        margin-bottom: 0px;
-        margin-left: auto;
-        justify-content: flex-start;
-    }
-    
+    min-height: 75px;
+    height: fit-content;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: flex-start;
+}
+
+.album .responsive-container-block.bg {
+    max-width: 1320px;
+    justify-content: space-between;
+}
+
+.album .img {
+    width: 100%;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.album .img:hover {
+    transform: scale(1.05);
+}
+
+.album .responsive-container-block.img-cont {
+    flex-direction: column;
+    max-width: 33.3%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
     .album .responsive-container-block.bg {
-        max-width: 1320px;
-        margin: 0 0 0 0;
+        flex-direction: column;
+    }
+
+    .album .responsive-container-block.img-cont {
+        max-width: 100%;
+        flex-direction: row;
         justify-content: space-between;
     }
-    
+
+    .album .img.img-big {
+        max-width: 49%;
+    }
+}
+
+@media (max-width: 500px) {
     .album .img {
-        width: 100%;
-        margin: 0 0 20px 0;
+        max-width: 94%;
+        margin-bottom: 25px;
     }
-    
-    .album #i9rb {
-        color: black;
-    }
-    
-    .album #ir6i {
-        color: black;
-    }
-    
-    .album #ikz3b {
-        color: black;
-    }
-    
+
     .album .responsive-container-block.img-cont {
         flex-direction: column;
-        max-width: 33.3%;
-        min-height: auto;
-        margin: 0 0 0 0;
-        height: 100%;
+        align-items: center;
+        padding: 10px;
     }
-    
-    .album #ipix {
-        color: black;
-    }
-    
-    .album #ipzoh {
-        color: black;
-    }
-    
-    .album #ig5q8 {
-        color: black;
-    }
-    
-    .album #imtzl {
-        color: black;
-    }
-    
-    .album #i53es {
-        color: black;
-    }
-    
-    .album .img.img-big {
-        height: 50%;
-        margin: 0 0 16px 0;
-    }
-    
-    @media (max-width: 1024px) {
-        .album .img {
-            margin: 0 0 18px 0;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        .album .img {
-            max-width: 32.5%;
-            margin: 0 0 0 0;
-        }
-        .album .responsive-container-block.bg {
-            flex-direction: column;
-        }
-        .album .responsive-container-block.img-cont {
-            max-width: 100%;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-        .album .img.img-big {
-            max-width: 49%;
-            margin: 0 0 0 0;
-        }
-    }
-    
-    @media (max-width: 500px) {
-        .album .img {
-            max-width: 94%;
-            margin: 0 0 25px 0;
-        }
-        .album .responsive-container-block.img-cont {
-            flex-direction: column;
-            align-items: center;
-            padding: 10px 10px 10px 10px;
-        }
-        .album .img.img-big {
-            max-width: 94%;
-            margin: 0 0 25px 0;
-        }
-        .album .img.img-last {
-            margin: 0 0 5px 0;
-        }
-    }
+}
 </style>
+
 <section class="section service-area bg-gray overflow-hidden ptb_1001 mt-5">
-            <div class="container">
-                <div class="album">
-                    <div class="responsive-container-block bg">
-                        <div class="responsive-container-block img-cont">
-                            <img class="img" src="assets/img/gallary/pic15 rajput ww.jpeg">
-                            <img class="img" src="assets/img/gallary/pic17 maratha www.jpeg">
-                            <!-- <img class="img img-last" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.6.svg"> -->
-                        </div>
-                        <div class="responsive-container-block img-cont">
-                            <img class="img img-big" src="assets/img/gallary/project-5.jpg">
-                            <img class="img img-big img-last" src="assets/img/gallary/about-1.jpg">
-                        </div>
-                        <div class="responsive-container-block img-cont">
-                            <img class="img" src="assets/img/gallary/south indian.jpeg">
-                            <img class="img" src="assets/img/gallary/project-7.jpg">
-                            <img class="img" src="assets/img/gallary/service-3.jpg">
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="album">
+            <div class="responsive-container-block bg">
+                <div class="responsive-container-block img-cont">
+                    <img class="img" src="assets/img/gallary/pic15 rajput ww.jpeg"
+                        onclick="showPopup('Rajput Wedding', 'This is a traditional Rajput wedding image.')">
+                    <img class="img" src="assets/img/gallary/pic17 maratha www.jpeg"
+                        onclick="showPopup('Maratha Culture', 'This image represents the Maratha culture and heritage.')">
+                </div>
+                <div class="responsive-container-block img-cont">
+                    <img class="img img-big" src="assets/img/gallary/project-5.jpg"
+                        onclick="showPopup('Project 5', 'This is an image from project 5.')">
+                    <img class="img img-big img-last" src="assets/img/gallary/about-1.jpg"
+                        onclick="showPopup('About Us', 'A beautiful image related to our about section.')">
+                </div>
+                <div class="responsive-container-block img-cont">
+                    <img class="img" src="assets/img/gallary/south indian.jpeg"
+                        onclick="showPopup('South Indian Tradition', 'An image showcasing South Indian traditional attire.')">
+                    <img class="img" src="assets/img/gallary/project-7.jpg"
+                        onclick="showPopup('Project 7', 'Another image from our project gallery.')">
+                    <img class="img" src="assets/img/gallary/service-3.jpg"
+                        onclick="showPopup('Our Services', 'This image highlights the services we offer.')">
                 </div>
             </div>
-        </section>
-     
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="imagePopup" tabindex="-1" aria-labelledby="imagePopupLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background: linear-gradient(135deg, #f857a6 0%, #ff5858 100%);
+                   color: white; 
+                   border-radius: 12px; 
+                   padding: 25px;
+                   position: relative;
+                   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);">
+            <!-- Close Button -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                style="position: absolute; top: 10px; right: 15px; background: transparent; border: none;">
+                <i class="fas fa-times" style="color: white; font-size: 22px;"></i>
+            </button>
+
+            <div class="modal-body" style="padding: 20px; text-align: center; font-size: 16px;">
+                <p id="popupDescription" style="
+                          color: white;">
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome for the close icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+<script>
+function showPopup(title, description) {
+    document.getElementById('popupDescription').innerText = description;
+    var myModal = new bootstrap.Modal(document.getElementById('imagePopup'));
+    myModal.show();
+}
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("imagePopup");
+    var modalInstance = new bootstrap.Modal(modal);
+
+    document.querySelector(".close-btn").addEventListener("click", function() {
+        modalInstance.hide();
+    });
+});
+
+</script>
+
 <?php include 'footer.php'; ?>

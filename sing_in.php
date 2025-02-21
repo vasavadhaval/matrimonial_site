@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
                                 <p class="text-center">
                                     <span>New on our platform?</span>
                                     <a href="sing_up.php">
-                                        <span>Create profile</span>
+                                        <span>Registration</span>
                                     </a>
                                 </p>
                             </div>
