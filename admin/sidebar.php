@@ -4,7 +4,7 @@
                 <div class="app-brand demo">
                     <a href="index.html" class="app-brand-link">
                         <span class="app-brand-logo demo">
-                        <img src="../assets/img/logo/logo2.png" alt="" srcset="" width="55px;">
+                            <img src="../assets/img/logo/logo2.png" alt="" srcset="" width="55px;">
 
                         </span>
                         <span class="app-brand-text demo menu-text fw-bold ms-2">MB</span>
@@ -22,38 +22,64 @@
                     <?php
                     $currentFile = basename($_SERVER['PHP_SELF']);
                     $isDashboard = ($currentFile == 'dashboard.php');
-                    $isUserList = ($currentFile == 'user_list.php');
+                    $isUserList = ($currentFile == 'user_list.php' || $currentFile == 'view_user.php' || $currentFile == 'edit_user.php');
+                    $isReviewList = ($currentFile == 'review_listings.php' || $currentFile == 'review_details.php');
+                    $isContactList = ($currentFile == 'contact_list.php' || $currentFile == 'view_contact.php');
                     ?>
+
                     <!-- Dashboards -->
                     <li class="menu-item <?php echo $isDashboard ? 'active open' : ''; ?>">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <a href="dashboard.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-smile"></i>
                             <div class="text-truncate" data-i18n="Dashboards">Dashboards</div>
-                            <span class="badge rounded-pill bg-danger ms-auto">1</span>
                         </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item <?php echo $isDashboard ? 'active' : ''; ?>">
-                                <a href="dashboard.php" class="menu-link">
-                                    <div class="text-truncate" data-i18n="Dashboards">Dashboards</div>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
-                    <li class="menu-item <?php echo $isUserList ? 'active open' : ''; ?> ">
+
+                    <!-- Users -->
+                    <li class="menu-item <?php echo $isUserList ? 'active open' : ''; ?>">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon icon-base bx bx-user"></i>
+                            <i class="menu-icon bx bx-user"></i>
                             <div data-i18n="Users">Users</div>
                         </a>
-                        <ul class="menu-sub <?php echo $isUserList ? 'active' : ''; ?>">
-                            <li class="menu-item">
+                        <ul class="menu-sub">
+                            <li class="menu-item <?php echo ($currentFile == 'user_list.php') ? 'active' : ''; ?>">
                                 <a href="user_list.php" class="menu-link">
                                     <div class="text-truncate" data-i18n="List">List</div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
 
+                    <!-- Reviews -->
+                    <li class="menu-item <?php echo $isReviewList ? 'active open' : ''; ?>">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon bx bx-star"></i>
+                            <div data-i18n="Reviews">Reviews</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li
+                                class="menu-item <?php echo ($currentFile == 'review_listings.php') ? 'active' : ''; ?>">
+                                <a href="review_listings.php" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Review List">Review List</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item <?php echo $isContactList ? 'active open' : ''; ?>">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon bx bx-envelope"></i>
+                            <div data-i18n="Contact Us">Contact Us</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item <?php echo $currentFile == 'contact_list.php' ? 'active' : ''; ?>">
+                                <a href="contact_list.php" class="menu-link">
+                                    <div class="text-truncate" data-i18n="List">List</div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
                 </ul>
+
             </aside>
             <!-- / Menu -->

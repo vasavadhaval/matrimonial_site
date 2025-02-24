@@ -1,4 +1,45 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+
+include 'send_mail.php'; // Include email function
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = mysqli_real_escape_string($conn, $_POST["name"]);
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $subject = mysqli_real_escape_string($conn, $_POST["subject"]);
+    $message = mysqli_real_escape_string($conn, $_POST["message"]);
+
+    // Store in the database
+    $query = "INSERT INTO contact_us (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')";
+    if (mysqli_query($conn, $query)) {
+        // Fetch all admin emails
+        $adminQuery = "SELECT email FROM users WHERE role_id = '1'";
+        $adminResult = mysqli_query($conn, $adminQuery);
+        $adminEmails = [];
+
+        while ($row = mysqli_fetch_assoc($adminResult)) {
+            $adminEmails[] = $row['email'];
+        }
+// echo "email_test";
+//         print_r($adminEmails);
+//         exit;
+        // Send email to all admins
+        $adminEmailContent = "New contact form submission from:\n\nName: $name\nEmail: $email\nSubject: $subject\nMessage: $message";
+        foreach ($adminEmails as $adminEmail) {
+            sendMail($adminEmail, "New Contact Form Submission", $adminEmailContent);
+        }
+
+        // Send confirmation email to user
+        $userEmailContent = "Dear $name,\n\nThank you for reaching out! We have received your message and will contact you soon.\n\nBest regards,\nSupport Team";
+        if(sendMail($email, "We Received Your Message", $userEmailContent)){
+
+            echo "<script>alert('Your message has been sent successfully!'); window.location.href = 'contact_us.php';</script>";
+        }
+
+    } else {
+        echo "<script>alert('Error submitting form. Please try again.');</script>";
+    }
+}
+?>
 
 <section id="contact" class="contact-area ptb_100 mt-5">
     <div class="container">
@@ -19,7 +60,7 @@
                 <!-- Contact Box -->
                 <div class="contact-box text-center">
                     <!-- Contact Form -->
-                    <form id="contact-form" method="POST" action="assets/php/mail.php">
+                    <form id="" method="POST">
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
@@ -52,8 +93,8 @@
                                         </svg><!-- <i class="fas fa-paper-plane"></i> --></span>Send Message</button>
                             </div>
                         </div>
+                        
                     </form>
-                    <p class="form-message"></p>
                 </div>
             </div>
         </div>

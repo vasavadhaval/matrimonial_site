@@ -1,23 +1,39 @@
 <?php include 'header.php'; 
 
+$token = isset($_GET['token']) ? $_GET['token'] : '';
+
+if (!$token) {
+    echo "<script>alert('Invalid or expired link!'); window.location.href = 'forgot_password.php';</script>";
+    exit;
+}
+
 if (isset($_POST['submit'])) {
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    // $new_password = mysqli_real_escape_string($conn, $_POST['new_password']);
-    // $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
 
     if ($new_password !== $confirm_password) {
         echo "<script>alert('Passwords do not match.');</script>";
     } else {
-        // $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
-        // $query = "UPDATE users SET password = '$hashed_password' WHERE email = '$email'";
-        $query = "UPDATE users SET password = '$new_password' WHERE email = '$email'";
-        
-        if (mysqli_query($conn, $query)) {
-            echo "<script>alert('Password reset successful. You can now log in.'); window.location.href = 'sing_in.php';</script>";
+        // Validate token and get email
+        $query = "SELECT email FROM password_resets WHERE token = '$token' LIMIT 1";
+        $result = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $email = $row['email'];
+
+            // Update password WITHOUT encryption
+            $updateQuery = "UPDATE users SET password = '$new_password' WHERE email = '$email'";
+            
+            if (mysqli_query($conn, $updateQuery)) {
+                // Remove token from database
+                mysqli_query($conn, "DELETE FROM password_resets WHERE token = '$token'");
+                echo "<script>alert('Password reset successful. You can now log in.'); window.location.href = 'sign_in.php';</script>";
+            } else {
+                echo "<script>alert('Error updating password. Please try again.');</script>";
+            }
         } else {
-            echo "<script>alert('Error updating password. Please try again.');</script>";
+            echo "<script>alert('Invalid or expired token!'); window.location.href = 'forgot_password.php';</script>";
         }
     }
 }
@@ -50,7 +66,7 @@ if (isset($_POST['submit'])) {
                             <button type="submit" name="submit" class="btn mt-3 w-100">Reset Password</button>
                         </div>
                         <div class="col-12 mt-2 text-center">
-                            <a href="sing_in.php">Back to Login</a>
+                            <a href="sign_in.php">Back to Login</a>
                         </div>
                     </form>
                 </div>

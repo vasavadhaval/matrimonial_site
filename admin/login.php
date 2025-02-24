@@ -119,7 +119,15 @@ if (isset($_POST['submit'])) {
                     autofocus />
                 </div>
                 <div class="mb-6 form-password-toggle">
+                  <div class="">
+                  <div class="d-flex justify-content-between mt-8">
                   <label class="form-label" for="password">Password</label>
+
+                    <a href="forgot_password.php">
+                      <span>Forgot Password?</span>
+                    </a>
+                  </div>
+                </div>
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
@@ -131,17 +139,7 @@ if (isset($_POST['submit'])) {
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
-                <div class="mb-8">
-                  <div class="d-flex justify-content-between mt-8">
-                    <!-- <div class="form-check mb-0 ms-2">
-                      <input class="form-check-input" type="checkbox" id="remember-me" />
-                      <label class="form-check-label" for="remember-me"> Remember Me </label>
-                    </div> -->
-                    <!-- <a href="auth-forgot-password-basic.html">
-                      <span>Forgot Password?</span>
-                    </a> -->
-                  </div>
-                </div>
+
                 <div class="mb-6">
                   <button class="btn btn-primary d-grid w-100" type="submit" name="submit">Login</button>
                 </div>

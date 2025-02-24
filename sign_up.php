@@ -1,98 +1,62 @@
-<?php include 'header.php'; 
-
-?>
-
-<?php
+<?php 
+include 'header.php'; 
+include 'send_mail.php'; // Include email function
 
 if (isset($_POST['submit'])) {
-
-//     Array
-// (
-//     [full_name] => Josephine Rivas
-//     [dob] => 1972-12-08
-//     [gender] => widowed
-//     [email] => gujir@mailinator.com
-//     [phone_no] => +1 (881) 302-7116
-//     [height] => Perferendis ipsam au
-//     [weight] => Placeat ex blanditi
-//     [cast] => Brahmin
-//     [place_of_birth] => Doloribus incididunt
-//     [state] => Arunachal pradesh
-//     [city] => Tamilnadu
-//     [religion] => Buddhist
-//     [mother_tongue] => Oriya
-//     [education] => Ipsum earum non des
-//     [occupation] => Itaque deserunt est 
-//     [income] => 394
-//     [father_occupation] => Cupidatat numquam ha
-//     [mother_occupation] => Dolorem enim nihil e
-//     [siblings] => Alias facere amet d
-//     [partner_age] => Nostrum optio autem
-//     [partner_height] => Adipisicing incididu
-//     [partner_religion] => Cillum sit dolore ni
-//     [personality_traits] => Perferendis pariatur
-//     [hobbies] => Sunt sit similique 
-//     [about_me] => Eum ut rem enim quas
-//     [submit] => 
-// )
-
-
     $full_name = $_POST['full_name'];
     $email = $_POST['email'];
     $phone_no = $_POST['phone_no'];
     $password = $_POST['password'];
-    
+
     $status = 'pending';
 
-    // Check if the user with the given email already exists
+    // Check if the email already exists
     $check_email_query = "SELECT * FROM users WHERE email='$email' AND role_id = 2";
     $result = mysqli_query($conn, $check_email_query);
 
     if (mysqli_num_rows($result) > 0) {
         echo "<script>
             alert('Email already exists. Please use a different email.');
-            window.location.href = 'sing_up.php';
+            window.location.href = 'sign_up.php';
         </script>";
     } else {
         $sql = "INSERT INTO users (full_name, email, phone_no, password, status) 
                 VALUES ('$full_name', '$email', '$phone_no', '$password', '$status')";
 
         if (mysqli_query($conn, $sql)) {
+            // Notify all admins
+            $adminQuery = "SELECT email FROM users WHERE role_id = 1"; // Fetch all admins
+            $adminResult = mysqli_query($conn, $adminQuery);
+            $adminEmails = [];
+
+            while ($row = mysqli_fetch_assoc($adminResult)) {
+                $adminEmails[] = $row['email'];
+            }
+
+            // Email content for admins
+            $adminEmailContent = "A new user has registered and is awaiting approval:\n\n
+                Name: $full_name\n
+                Email: $email\n
+                Phone No: $phone_no\n
+                Status: Pending Approval\n\n
+                Please log in to the admin panel to approve or reject the registration.";
+
+            // Send notification to all admins
+            foreach ($adminEmails as $adminEmail) {
+                sendMail($adminEmail, "New User Registration Pending Approval", $adminEmailContent);
+            }
+
             echo "<script>
-                alert('Your profile is created successfully.');
-                window.location.href = 'sing_in.php';
+                alert('Your profile is created successfully and awaiting admin approval.');
+                window.location.href = 'sign_in.php';
             </script>";
         } else {
             echo "<script>alert('Error: " . $sql . " <br> " . mysqli_error($conn) . "');</script>";
         }
     }
-
-    // if (mysqli_query($conn, $sql)) {
-
-    //     $_SESSION['is_login'] = true;
-    //     $_SESSION['user_data'] = [
-    //         'full_name' => $full_name,
-    //         'email' => $email,
-    //         'phone_no' => $phone_no
-    //     ];
-    //     echo "<script>
-    //         if (confirm('Your profile is created successfully. Do you want to stay logged in?')) {
-    //             window.location.href = 'update_profile.php';
-    //         } else {";
-
-    //         session_unset();
-    //         session_destroy();
-
-    //            echo "   window.location.href = 'sing_in.php';
-    //         }
-    //           </script>";
-    // } else {
-    //     echo "<script>alert('Error:  ". $sql ." <br> ". mysqli_error($conn).");</script>";
-    // }
-
-
 }
 ?>
+
 
 <section id="contact" class="contact-area ptb_100 mt-5">
     <div class="container">
@@ -163,7 +127,7 @@ if (isset($_POST['submit'])) {
                             <div class="col-12 mt-2">
                                 <p class="text-center">
                                     <span>Already have an account?</span>
-                                    <a href="sing_in.php">
+                                    <a href="sign_in.php">
                                         <span>Sign in instead</span>
                                     </a>
                                 </p>

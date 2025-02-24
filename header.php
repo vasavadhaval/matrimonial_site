@@ -290,6 +290,9 @@ include 'db.php';
                                 <a class="nav-link" href="stories.php">Stories</a>
                             </li>
                             <?php if (isset($_SESSION['is_login']) && $_SESSION['is_login'] == true){ ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="feedback.php">Feedback</a>
+                            </li>
                                 <li class="nav-item">
                                     <div>
                                         <a class="nav-link login" href="logout.php">Logout</a>
@@ -303,12 +306,12 @@ include 'db.php';
                             <?php }else{ ?>
                                 <li class="nav-item">
                                     <div>
-                                        <a class="nav-link login" href="sing_in.php">Login</a>
+                                        <a class="nav-link login" href="sign_in.php">Login</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
                                     <div>
-                                        <a class="nav-link create-profile" href="sing_up.php">Create Profile</a>
+                                        <a class="nav-link create-profile" href="sign_up.php">Create Profile</a>
                                     </div>
                                 </li>
                             <?php } ?>
