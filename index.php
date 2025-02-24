@@ -278,6 +278,17 @@
 </section>
 <!-- ***** Promo Area End ***** -->
 
+<?php
+
+$sql = "SELECT r.id, r.user_id, r.email, r.review, r.created_at, u.full_name, u.profile_img 
+        FROM reviews r 
+        JOIN users u ON r.user_id = u.id 
+        ORDER BY r.created_at DESC"; // Fetch all reviews, newest first
+
+$result = mysqli_query($conn, $sql);
+$reviews = mysqli_fetch_all($result, MYSQLI_ASSOC);
+?>
+
 <section class="review-area bg-gray ptb_100 custom_bg">
     <div class="container">
         <div class="row justify-content-center">
@@ -291,185 +302,31 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-lg-7">
                 <div class="reviews owl-carousel owl-loaded owl-drag">
-                    <!-- Single Review -->
+                    
+                    <?php foreach ($reviews as $review) : ?>
+                        <div class="single-review text-center">
+                            <!-- Review Text -->
+                            <p class="review-text text-white">
+                                <img class="avatar mr-2" src="assets/img/icon/quote2.png" alt="">
+                                <?= htmlspecialchars($review['review']); ?>
+                            </p>
+                            <!-- Reviewer -->
+                            <div class="reviewer p-4">
+                                <!-- Reviewer Thumb -->
+                                <div class="reviewer-thumb">
 
-                    <!-- Single Review -->
-
-                    <!-- Single Review -->
-
-                    <div class="owl-stage-outer">
-                        <div class="owl-stage"
-                            style="transform: translate3d(-2620px, 0px, 0px); transition: 0.25s; width: 4585px;">
-                            <div class="owl-item cloned" style="width: 635px; margin-right: 20px;">
-                                <div class="single-review text-center">
-                                    <!-- Review Text -->
-                                    <p class="review-text text-white">
-                                        <img class="avatar mr-2" src="assets/img/icon/quote2.png" alt="">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A impedit, quas. Ad
-                                        minus voluptatibus corporis eaque deleniti, quam, voluptates quidem similique
-                                        tenetur reiciendis libero atque hic expedita officia provident perferendis.
-                                    </p>
-                                    <!-- Reviewer -->
-                                    <div class="reviewer p-4">
-                                        <!-- Reviewer Thumb -->
-                                        <div class="reviewer-thumb">
-                                            <img class="avatar-lg mx-auto radius-100"
-                                                src="assets/img/avatar/avatar-2.png" alt="">
-                                        </div>
-                                        <!-- Reviewer Media -->
-                                        <div class="reviewer-meta mt-3">
-                                            <h5 class="reviewer-name mb-2 text-white">Yasmin Akter</h5>
-                                            <h6 class="text-secondary fw-6">Co-Founder, Themeland</h6>
-                                        </div>
-                                    </div>
+                                         <img src="<?= htmlspecialchars($base_url . '/' . $review['profile_img']) ?>"
+                                        alt="Profile Picture"  class="avatar-lg mx-auto radius-100" 
+                                        onerror="this.onerror=null; this.src='<?= $base_url ?>/assets/img/avatar/avatar-1.png';" >
                                 </div>
-                            </div>
-                            <div class="owl-item cloned" style="width: 635px; margin-right: 20px;">
-                                <div class="single-review text-center">
-                                    <!-- Review Text -->
-                                    <p class="review-text text-white">
-                                        <img class="avatar mr-2" src="assets/img/icon/quote2.png" alt="">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A impedit, quas. Ad
-                                        minus voluptatibus corporis eaque deleniti, quam, voluptates quidem similique
-                                        tenetur reiciendis libero atque hic expedita officia provident perferendis.
-                                    </p>
-                                    <!-- Reviewer -->
-                                    <div class="reviewer p-4">
-                                        <!-- Reviewer Thumb -->
-                                        <div class="reviewer-thumb">
-                                            <img class="avatar-lg mx-auto radius-100"
-                                                src="assets/img/avatar/avatar-3.png" alt="">
-                                        </div>
-                                        <!-- Reviewer Media -->
-                                        <div class="reviewer-meta mt-3">
-                                            <h5 class="reviewer-name mb-2 text-white">Md. Arham</h5>
-                                            <h6 class="text-secondary fw-6 text-white">SEO Expert, Themeland</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 635px; margin-right: 20px;">
-                                <div class="single-review text-center">
-                                    <!-- Review Text -->
-                                    <p class="review-text text-white">
-                                        <img class="avatar mr-2" src="assets/img/icon/quote2.png" alt="">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A impedit, quas. Ad
-                                        minus voluptatibus corporis eaque deleniti, quam, voluptates quidem similique
-                                        tenetur reiciendis libero atque hic expedita officia provident perferendis.
-                                    </p>
-                                    <!-- Reviewer -->
-                                    <div class="reviewer p-4">
-                                        <!-- Reviewer Thumb -->
-                                        <div class="reviewer-thumb">
-                                            <img class="avatar-lg mx-auto radius-100"
-                                                src="assets/img/avatar/avatar-2.png" alt="">
-                                        </div>
-                                        <!-- Reviewer Media -->
-                                        <div class="reviewer-meta mt-3">
-                                            <h5 class="reviewer-name mb-2 text-white">Junaid Hasan</h5>
-                                            <h6 class="text-secondary fw-6 text-white">CEO, Themeland</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 635px; margin-right: 20px;">
-                                <div class="single-review text-center">
-                                    <!-- Review Text -->
-                                    <p class="review-text text-white">
-                                        <img class="avatar mr-2" src="assets/img/icon/quote2.png" alt="">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A impedit, quas. Ad
-                                        minus voluptatibus corporis eaque deleniti, quam, voluptates quidem similique
-                                        tenetur reiciendis libero atque hic expedita officia provident perferendis.
-                                    </p>
-                                    <!-- Reviewer -->
-                                    <div class="reviewer p-4">
-                                        <!-- Reviewer Thumb -->
-                                        <div class="reviewer-thumb">
-                                            <img class="avatar-lg mx-auto radius-100"
-                                                src="assets/img/avatar/avatar-2.png" alt="">
-                                        </div>
-                                        <!-- Reviewer Media -->
-                                        <div class="reviewer-meta mt-3">
-                                            <h5 class="reviewer-name mb-2 text-white">Yasmin Akter</h5>
-                                            <h6 class="text-secondary fw-6 text-white">Co-Founder, Themeland</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="owl-item active" style="width: 635px; margin-right: 20px;">
-                                <div class="single-review text-center">
-                                    <!-- Review Text -->
-                                    <p class="review-text text-white">
-                                        <img class="avatar mr-2" src="assets/img/icon/quote2.png" alt="">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A impedit, quas. Ad
-                                        minus voluptatibus corporis eaque deleniti, quam, voluptates quidem similique
-                                        tenetur reiciendis libero atque hic expedita officia provident perferendis.
-                                    </p>
-                                    <!-- Reviewer -->
-                                    <div class="reviewer p-4">
-                                        <!-- Reviewer Thumb -->
-                                        <div class="reviewer-thumb">
-                                            <img class="avatar-lg mx-auto radius-100"
-                                                src="assets/img/avatar/avatar-3.png" alt="">
-                                        </div>
-                                        <!-- Reviewer Media -->
-                                        <div class="reviewer-meta mt-3">
-                                            <h5 class="reviewer-name mb-2 text-white">Md. Arham</h5>
-                                            <h6 class="text-secondary fw-6 text-white">SEO Expert, Themeland</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="owl-item cloned" style="width: 635px; margin-right: 20px;">
-                                <div class="single-review text-center">
-                                    <!-- Review Text -->
-                                    <p class="review-text text-white">
-                                        <img class="avatar mr-2" src="assets/img/icon/quote2.png" alt="">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A impedit, quas. Ad
-                                        minus voluptatibus corporis eaque deleniti, quam, voluptates quidem similique
-                                        tenetur reiciendis libero atque hic expedita officia provident perferendis.
-                                    </p>
-                                    <!-- Reviewer -->
-                                    <div class="reviewer p-4">
-                                        <!-- Reviewer Thumb -->
-                                        <div class="reviewer-thumb">
-                                            <img class="avatar-lg mx-auto radius-100"
-                                                src="assets/img/avatar/avatar-1.png" alt="">
-                                        </div>
-                                        <!-- Reviewer Media -->
-                                        <div class="reviewer-meta mt-3">
-                                            <h5 class="reviewer-name mb-2 text-white">Junaid Hasan</h5>
-                                            <h6 class="text-secondary fw-6 text-white">CEO, Themeland</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="owl-item cloned" style="width: 635px; margin-right: 20px;">
-                                <div class="single-review text-center">
-                                    <!-- Review Text -->
-                                    <p class="review-text text-white">
-                                        <img class="avatar mr-2 " src="assets/img/icon/quote2.png" alt="">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A impedit, quas. Ad
-                                        minus voluptatibus corporis eaque deleniti, quam, voluptates quidem similique
-                                        tenetur reiciendis libero atque hic expedita officia provident perferendis.
-                                    </p>
-                                    <!-- Reviewer -->
-                                    <div class="reviewer p-4">
-                                        <!-- Reviewer Thumb -->
-                                        <div class="reviewer-thumb">
-                                            <img class="avatar-lg mx-auto radius-100"
-                                                src="assets/img/avatar/avatar-2.png" alt="">
-                                        </div>
-                                        <!-- Reviewer Media -->
-                                        <div class="reviewer-meta mt-3">
-                                            <h5 class="reviewer-name mb-2 text-white">Yasmin Akter</h5>
-                                            <h6 class="text-secondary fw-6 text-white">Co-Founder, Themeland</h6>
-                                        </div>
-                                    </div>
+                                <!-- Reviewer Meta -->
+                                <div class="reviewer-meta mt-3">
+                                    <h5 class="reviewer-name mb-2 text-white"><?= htmlspecialchars($review['full_name']); ?></h5>
+                                    <h6 class="text-secondary fw-6 text-white"><?= htmlspecialchars($review['email']); ?></h6>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endforeach; ?>
 
                 </div>
             </div>

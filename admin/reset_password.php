@@ -117,7 +117,7 @@ if (isset($_POST['submit'])) {
                             <div class="mb-6 form-password-toggle form-control-validation fv-plugins-icon-container">
                                 <label class="form-label" for="password">New Password</label>
                                 <div class="input-group input-group-merge has-validation">
-                                    <input type="password" id="password" class="form-control" name="password"
+                                    <input type="password" id="password" class="form-control" name="new_password"
                                         placeholder="············" aria-describedby="password">
                                     <span class="input-group-text cursor-pointer"><i
                                             class="icon-base bx bx-hide"></i></span>
@@ -130,7 +130,7 @@ if (isset($_POST['submit'])) {
                                 <label class="form-label" for="confirm-password">Confirm Password</label>
                                 <div class="input-group input-group-merge has-validation">
                                     <input type="password" id="confirm-password" class="form-control"
-                                        name="confirm-password" placeholder="············" aria-describedby="password">
+                                        name="confirm_password" placeholder="············" aria-describedby="password">
                                     <span class="input-group-text cursor-pointer"><i
                                             class="icon-base bx bx-hide"></i></span>
                                 </div>
