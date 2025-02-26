@@ -25,8 +25,8 @@
                     $isUserList = ($currentFile == 'user_list.php' || $currentFile == 'view_user.php' || $currentFile == 'edit_user.php');
                     $isReviewList = ($currentFile == 'review_listings.php' || $currentFile == 'review_details.php');
                     $isContactList = ($currentFile == 'contact_list.php' || $currentFile == 'view_contact.php');
+                    $isPlanList = ($currentFile == 'plan_list.php' || $currentFile == 'plan_details.php' || $currentFile == 'create_plan.php' || $currentFile == 'edit_plan.php');
                     ?>
-
                     <!-- Dashboards -->
                     <li class="menu-item <?php echo $isDashboard ? 'active open' : ''; ?>">
                         <a href="dashboard.php" class="menu-link">
@@ -73,6 +73,20 @@
                         <ul class="menu-sub">
                             <li class="menu-item <?php echo $currentFile == 'contact_list.php' ? 'active' : ''; ?>">
                                 <a href="contact_list.php" class="menu-link">
+                                    <div class="text-truncate" data-i18n="List">List</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item <?php echo $isPlanList ? 'active open' : ''; ?>">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon bx bx-layer"></i>
+                            <div data-i18n="Plans">Plans</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item <?php echo $currentFile == 'plan_list.php' ? 'active' : ''; ?>">
+                                <a href="plan_list.php" class="menu-link">
                                     <div class="text-truncate" data-i18n="List">List</div>
                                 </a>
                             </li>

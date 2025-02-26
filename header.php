@@ -289,6 +289,9 @@ include 'db.php';
                             <li class="nav-item">
                                 <a class="nav-link" href="stories.php">Stories</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pricing_plans.php">Plans</a>
+                            </li>
                             <?php if (isset($_SESSION['is_login']) && $_SESSION['is_login'] == true){ ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="feedback.php">Feedback</a>
