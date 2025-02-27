@@ -31,8 +31,7 @@ try {
 
 if (mysqli_query($conn, $sql)) {
     echo "<script>
-        alert('Payment Successful! Payment ID: " . $payment_id . "');
-        window.location.href='pricing_plans.php';
+        window.location.href='my_profile.php';
     </script>";
 } else {
     echo "<script>

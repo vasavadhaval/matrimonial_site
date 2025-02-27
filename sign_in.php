@@ -1,22 +1,22 @@
 <?php include 'header.php'; 
 
 ?>
-
 <?php
 
 if (isset($_POST['submit'])) {
 
-
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE email = '$email' AND role_id = 2 AND status != 'pending'";
+    $sql = "SELECT * FROM users WHERE email = '$email' AND role_id = 2";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        // if (password_verify($password, $row['password'])) {
-        if ($password == $row['password']) {
+
+        if ($row['status'] == 'pending') { // Wait for admin approval
+            echo "<script>alert('Your account is pending approval. Please wait for admin approval.');</script>";
+        } elseif ($password == $row['password']) { // Verify password
             $_SESSION['is_login'] = true;
             $_SESSION['user_data'] = [
                 'id' => $row['id'],
@@ -34,9 +34,9 @@ if (isset($_POST['submit'])) {
     } else {
         echo "<script>alert('No user found with this email.');</script>";
     }
-
 }
 ?>
+
 
 <section id="contact" class="contact-area ptb_100 mt-5">
     <div class="container">

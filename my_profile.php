@@ -10,6 +10,17 @@
     } else {
         echo "No user found.";
     }
+    $sql_payment = "
+    SELECT p.*, pl.plan_name, pl.plan_price, pl.plan_image, pl.plan_type, 
+           pl.plan_include1, pl.plan_include2, pl.plan_include3, pl.plan_include4 
+    FROM payments p
+    LEFT JOIN plans pl ON p.plan_id = pl.id
+    WHERE p.user_id = $user_id 
+    ORDER BY p.created_at DESC 
+    LIMIT 1";
+    
+$result_payment = mysqli_query($conn, $sql_payment);
+$payment = mysqli_fetch_assoc($result_payment);
 ?>
     <style>
         .profile-img {
@@ -55,10 +66,10 @@
             <div class="card p-4">
                 <div class="text-center">
 
-<img src="<?= htmlspecialchars($base_url . '/' . $user['profile_img']) ?>" 
-     alt="Profile Picture" 
-     class="profile-img" 
-     onerror="this.onerror=null; this.src='<?= $base_url ?>/assets/img/avatar/avatar-1.png';">
+                <img src="<?= htmlspecialchars($base_url . '/' . $user['profile_img']) ?>" 
+                    alt="Profile Picture" 
+                    class="profile-img" 
+                    onerror="this.onerror=null; this.src='<?= $base_url ?>/assets/img/avatar/avatar-1.png';">
 
                     <h3 class="mt-3"><?= htmlspecialchars($user['full_name']) ?></h3>
                     <p class="text-muted"><?= htmlspecialchars($user['occupation']) ?> | <?= htmlspecialchars($user['city']) ?>, <?= htmlspecialchars($user['state']) ?></p>
@@ -131,6 +142,60 @@
 
             </div>
         </div>
+
+<!-- Display the Current Plan and Payment Details -->
+<?php if ($payment): ?>
+        <!-- Current Plan -->
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Current Plan</h5>
+                </div>
+                <div class="card-body text-center">
+                    <img src="<?= htmlspecialchars($payment['plan_image'] ?: 'default_plan.png') ?>" 
+                         class="img-fluid rounded mb-3" width="100" 
+                         alt="Plan Image">
+                    <h6 class="fw-bold"><?= htmlspecialchars($payment['plan_name']) ?></h6>
+                    <p class="badge bg-info">Price: <?= htmlspecialchars($payment['plan_price']) ?> USD</p>
+                    <p class="text-muted">Type: <?= htmlspecialchars($payment['plan_type']) ?></p>
+                    
+                    <ul class="list-group text-start">
+                        <li class="list-group-item"><?= htmlspecialchars($payment['plan_include1']) ?></li>
+                        <li class="list-group-item"><?= htmlspecialchars($payment['plan_include2']) ?></li>
+                        <li class="list-group-item"><?= htmlspecialchars($payment['plan_include3']) ?></li>
+                        <li class="list-group-item"><?= htmlspecialchars($payment['plan_include4']) ?></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Payment Details</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Order ID:</strong> <?= htmlspecialchars($payment['razorpay_order_id']) ?></p>
+                    <p><strong>Payment ID:</strong> <?= htmlspecialchars($payment['razorpay_payment_id']) ?></p>
+                    <p><strong>Amount Paid:</strong> <?= htmlspecialchars($payment['amount']) ?> <?= htmlspecialchars($payment['currency']) ?></p>
+                    <p><strong>Status:</strong> 
+                        <span class="badge bg-<?= $payment['status'] === 'success' ? 'success' : 'danger' ?>">
+                            <?= htmlspecialchars($payment['status']) ?>
+                        </span>
+                    </p>
+                    <p><strong>Purchased On:</strong> <?= date("d M Y", strtotime($payment['created_at'])) ?></p>
+                </div>
+            </div>
+        </div>
+        <?php else: ?>
+    <!-- No Membership Found -->
+    <div class="col-md-4">
+
+        <div class="alert alert-warning text-center">
+            <h5>No Membership Found</h5>
+            <p>Upgrade now to enjoy exclusive benefits and features!</p>
+            <a href="pricing_plans" class="btn btn-primary">Upgrade Now</a>
+        </div>
+    </div>
+<?php endif; ?>
     </div>
 </div>
     </div>

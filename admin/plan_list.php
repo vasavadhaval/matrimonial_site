@@ -51,8 +51,11 @@ $result = mysqli_query($conn, $sql);
                                                 </ul>
                                             </td>
                                             <td>
-                                                <img src="<?= htmlspecialchars($row['plan_image']) ?>" alt="Plan Image"
-                                                    width="50" height="50" style="border-radius: 5px;">
+
+
+                                                    <img src="<?= str_replace('admin/', '', $base_url . '/' . $row['plan_image']); ?>" 
+                                                     alt="Plan Picture" class="Plan-img"
+                                                     onerror="this.onerror=null; this.src='<?= $base_url ?>/assets/img/avatar/avatar-1.png';"    width="50" height="50" style="border-radius: 5px;">
                                             </td>
                                             <td>
                                                 <?php if ($row['is_active'] == 1): ?>

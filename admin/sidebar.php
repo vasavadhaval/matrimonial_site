@@ -26,6 +26,7 @@
                     $isReviewList = ($currentFile == 'review_listings.php' || $currentFile == 'review_details.php');
                     $isContactList = ($currentFile == 'contact_list.php' || $currentFile == 'view_contact.php');
                     $isPlanList = ($currentFile == 'plan_list.php' || $currentFile == 'plan_details.php' || $currentFile == 'create_plan.php' || $currentFile == 'edit_plan.php');
+                    $isPaymentList = ($currentFile == 'payment_list.php' || $currentFile == 'payment_details.php');
                     ?>
                     <!-- Dashboards -->
                     <li class="menu-item <?php echo $isDashboard ? 'active open' : ''; ?>">
@@ -88,6 +89,21 @@
                             <li class="menu-item <?php echo $currentFile == 'plan_list.php' ? 'active' : ''; ?>">
                                 <a href="plan_list.php" class="menu-link">
                                     <div class="text-truncate" data-i18n="List">List</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Payments -->
+                    <li class="menu-item <?php echo $isPaymentList ? 'active open' : ''; ?>">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon bx bx-wallet"></i>
+                            <div data-i18n="Payments">Payments</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item <?php echo ($currentFile == 'payment_list.php') ? 'active' : ''; ?>">
+                                <a href="payment_list.php" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Payment List">Payment List</div>
                                 </a>
                             </li>
                         </ul>

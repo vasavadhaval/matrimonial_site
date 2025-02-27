@@ -151,7 +151,7 @@
                 <div class="single-price-plan <?= $row['is_active'] ? 'featured' : '' ?>">
                     <!-- Plan Thumb -->
                     <div class="plan-thumb mx-auto my-4">
-                        <img class="avatar-lg" src="assets/img/plans/<?= htmlspecialchars($row['plan_image']) ?>"
+                        <img class="avatar-lg" src="<?= htmlspecialchars($base_url . '/' . $row['plan_image']) ?>"
                             alt="">
                     </div>
                     <!-- Price Header -->
@@ -173,7 +173,7 @@
                     </ul>
                     <!-- Plan Select -->
                     <div class="plan-select">
-                        <button class="btn btn-bordered text-uppercase" onclick="payNow(<?= number_format($row['plan_price'], 2) ?>)">Select Plan</button>
+                        <button class="btn btn-bordered text-uppercase" onclick="payNow(<?= number_format($row['plan_price'], 2) ?>,<?= number_format($row['id'], 2) ?>)">Select Plan</button>
                     </div>
                 </div>
                 <?php endwhile; else : ?>
@@ -199,7 +199,7 @@
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-function payNow(amount) {
+function payNow(amount,plan_id) {
     fetch("check_loginn.php")
         .then(response => response.json())
         .then(data => {
@@ -215,7 +215,8 @@ function payNow(amount) {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        amount: amount
+                        amount: amount,
+                        plan_id: plan_id
                     }) // Send amount dynamically
                 })
                 .then(response => response.json())

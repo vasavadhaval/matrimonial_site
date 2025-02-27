@@ -40,7 +40,9 @@ if (isset($_GET['id'])) {
                                             <p><strong>Plan Price:</strong> ₹<?php echo $plan['plan_price']; ?></p>
                                             <p><strong>Plan Type:</strong> <?php echo ucfirst($plan['plan_type']); ?></p>
                                             <p><strong>Plan Image:</strong></p>
-                                            <img src="<?php echo $plan['plan_image']; ?>" alt="Plan Image" class="img-fluid">
+                                            <img src="<?= str_replace('admin/', '', $base_url . '/' . $plan['plan_image']); ?>" 
+                                                     alt="Plan Picture" class="Plan-img img-fluid"
+                                                     onerror="this.onerror=null; this.src='<?= $base_url ?>/assets/img/avatar/avatar-1.png';"    >
                                         </div>
                                     </div>
                                 </div>

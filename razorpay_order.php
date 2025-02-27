@@ -29,6 +29,7 @@ $order = $api->order->create($orderData);
 
 // Store order ID in session
 $_SESSION['razorpay_order_id'] = $order['id'];
+$_SESSION['plan_id'] = $data['plan_id'];
 
 // Return JSON response
 echo json_encode([

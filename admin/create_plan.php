@@ -13,14 +13,17 @@ if (isset($_POST['submit'])) {
     // Default Image Path
     $plan_image = "uploads/default.png";
 
+
     // Image Upload Handling
     if (isset($_FILES['plan_image']) && $_FILES['plan_image']['error'] == 0) {
-        $target_dir = "uploads/";
+        $target_dir = __DIR__ . "/../uploads/"; 
         $image_name = time() . "_" . basename($_FILES["plan_image"]["name"]);
         $target_file = $target_dir . $image_name;
 
         if (move_uploaded_file($_FILES["plan_image"]["tmp_name"], $target_file)) {
-            $plan_image = $target_file;
+            // $plan_image = $target_file;
+            $plan_image =  'uploads/' .  $image_name;
+
         }
     }
 
