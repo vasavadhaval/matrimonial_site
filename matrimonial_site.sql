@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2025 at 05:26 AM
+-- Generation Time: Feb 27, 2025 at 05:22 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -107,10 +107,10 @@ CREATE TABLE `plans` (
 --
 
 INSERT INTO `plans` (`id`, `plan_name`, `plan_price`, `plan_image`, `plan_type`, `is_active`, `plan_include1`, `plan_include2`, `plan_include3`, `plan_include4`, `created_at`, `updated_at`) VALUES
-(1, 'Basic', 49.00, 'assets/img/icon/basic.png', 'monthly', 0, 'Profile Listing', 'Limited Contact Access', 'Basic Matchmaking', 'Email Support', '2025-02-25 21:19:49', '2025-02-25 21:19:49'),
-(2, 'Standard', 99.00, 'assets/img/icon/standard.png', 'monthly', 0, 'Profile Listing', 'Unlimited Contact Access', 'Advanced Matchmaking', 'Phone Support', '2025-02-25 21:19:49', '2025-02-25 21:19:49'),
-(3, 'Premium', 149.00, 'assets/img/icon/premium.png', 'monthly', 1, 'Profile Listing & Highlight', 'Unlimited Contact Access', 'Personal Matchmaking Assistant', 'Priority Support', '2025-02-25 21:19:49', '2025-02-25 21:19:49'),
-(4, 'Elite', 350.00, 'assets/img/icon/elite.png', 'yearly', 0, 'Exclusive Profile Listing', 'Direct Contact Access', 'Dedicated Matchmaker', 'Premium Support & Counseling', '2025-02-25 21:19:49', '2025-02-25 23:11:32');
+(1, 'Basic', 49.00, 'uploads/1740628057_c11.png', 'monthly', 0, 'Profile Listing', 'Limited Contact Access', 'Basic Matchmaking', 'Email Support', '2025-02-25 21:19:49', '2025-02-27 03:47:37'),
+(2, 'Standard', 99.00, 'uploads/1740628044_c12.png', 'monthly', 0, 'Profile Listing', 'Unlimited Contact Access', 'Advanced Matchmaking', 'Phone Support', '2025-02-25 21:19:49', '2025-02-27 03:47:24'),
+(3, 'Premium', 149.00, 'uploads/1740628030_c7.png', 'monthly', 0, 'Profile Listing & Highlight', 'Unlimited Contact Access', 'Personal Matchmaking Assistant', 'Priority Support', '2025-02-25 21:19:49', '2025-02-27 03:47:10'),
+(4, 'Elite', 350.00, 'uploads/1740626192_c8.png', 'yearly', 1, 'Exclusive Profile Listing', 'Direct Contact Access', 'Dedicated Matchmaker', 'Premium Support & Counseling', '2025-02-25 21:19:49', '2025-02-27 03:18:45');
 
 -- --------------------------------------------------------
 
@@ -195,7 +195,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `full_name`, `profile_img`, `password`, `dob`, `gender`, `email`, `phone_no`, `height`, `weight`, `cast`, `place_of_birth`, `state`, `city`, `religion`, `mother_tongue`, `education`, `occupation`, `income`, `father_occupation`, `mother_occupation`, `siblings`, `partner_age`, `partner_height`, `partner_religion`, `personality_traits`, `hobbies`, `about_me`, `what_are_you_looking_for`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Josephine Rivas', 'uploads/w2.jpg', 'New Password', '1972-12-08', 'Female', 'web.dhavalvasava@gmail.com', '+1 (881) 302-7116', 323, 0, 'Brahmin', 'Doloribus incididunt', 'Sikkim', 'Tamilnadu', 'Buddhist', 'Oriya', 'Ipsum earum non des', 'Itaque deserunt est ', 394.00, 'Cupidatat numquam ha', 'Dolorem enim nihil e', 23, 423, 4234, 'Cillum sit dolore ni', 'Perferendis pariatur', 'Sunt sit similique ', 'Eum ut rem enim quas', 'sdfsdfs', 'pending', '2025-02-12 21:23:28', '2025-02-24 03:14:25');
+(1, 1, 'Josephine Rivas', 'uploads/w2.jpg', 'New Password', '1972-12-08', 'Female', 'web.dhavalvasava@gmail.com', '+1 (881) 302-7116', 323, 0, 'Brahmin', 'Doloribus incididunt', 'Sikkim', 'Tamilnadu', 'Buddhist', 'Oriya', 'Ipsum earum non des', 'Itaque deserunt est ', 394.00, 'Cupidatat numquam ha', 'Dolorem enim nihil e', 23, 423, 4234, 'Cillum sit dolore ni', 'Perferendis pariatur', 'Sunt sit similique ', 'Eum ut rem enim quas', 'sdfsdfs', 'pending', '2025-02-12 21:23:28', '2025-02-24 03:14:25'),
+(13, 2, 'Lacota Kelly', 'assets/img/avatar/avatar-1.png', 'Pa$$w0rd!', NULL, NULL, 'jivywid@mailinator.com', '+1 (753) 716-9137', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'active', '2025-02-27 03:01:02', '2025-02-27 03:04:38');
 
 --
 -- Indexes for dumped tables
@@ -278,7 +279,7 @@ ALTER TABLE `password_resets`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `plans`
@@ -302,7 +303,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
