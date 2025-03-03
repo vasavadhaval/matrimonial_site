@@ -52,12 +52,14 @@
             <div class="col-12 col-lg-6">
                 <!-- Service Thumb -->
                 <div class="service-thumb mx-auto text-center pt-4 pt-lg-0">
-                    <svg width="300" height="519" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 519" preserveAspectRatio="none">
+                <img src="assets/img/service/s4.jpg" alt="">
+
+                    <!-- <svg width="300" height="519" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 519" preserveAspectRatio="none">
                         <rect width="300" height="519" fill="#777"/>
                         <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Helvetica, sans-serif" font-size="20">
                             300x519
                         </text>
-                    </svg>
+                    </svg> -->
                 </div>
             </div>
         </div>
